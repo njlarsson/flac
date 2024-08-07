@@ -537,11 +537,12 @@ typedef FLAC__StreamEncoderReadStatus (*FLAC__StreamEncoderReadCallback)(const F
  *  number that is being written; otherwise it indicates that the write
  *  callback is being called to write metadata.
  *
- * \note Unlike when writing to native FLAC, when writing to Ogg FLAC the
- * write callback will be called at least twice when writing each audio frame;
- * once for the page header and once for the page body, possibly repeating
- * this pair of calls several times in a batch with the same value of \a
- * current_frame.  When writing the page header, as well as in all but the
+ * \note
+ * Unlike when writing to native FLAC, when writing to Ogg FLAC the write
+ * callback will be called at least twice when writing each audio frame; once
+ * for the page header and once for the page body, possibly repeating this
+ * pair of calls several times in a batch with the same value of
+ * \a current_frame.  When writing the page header, as well as in all but the
  * first page body write of the batch, the \a samples argument to the write
  * callback will be \c 0. The full number of samples of the batch will be
  * passed in the first page body write. Furthermore, it is possible that a few
